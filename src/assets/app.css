@@ -1,0 +1,70 @@
+a[target='_blank']:after {
+  content: '\1F5D7'
+}
+
+/*
+  Hides Sitecore editor markup,
+  if you run the app in connected mode while the Sitecore cookies
+  are set to edit mode.
+*/
+.scChromeData, .scpm { display: none !important; }
+
+/*
+  Styles for default JSS error components
+*/
+.sc-jss-editing-error,
+.sc-jss-placeholder-error {
+  padding: 1em;
+  background-color: lightyellow;
+}
+
+/* 
+  Style for default content block
+*/
+.contentTitle {
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+
+.panel-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.content {
+  flex: 1;
+}
+
+.media-show-in-desktop {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.content.full-width {
+  flex: 1 1 100%;
+}
+
+@media (max-width: 768px) {
+  .panel-container {
+    flex-direction: column;
+  }
+
+  .media-show-in-desktop {
+    display: none;
+  }
+}
