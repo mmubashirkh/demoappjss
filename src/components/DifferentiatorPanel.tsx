@@ -1,12 +1,13 @@
-import { 
-    Text,
+import {
+  Text,
   Field,
   withDatasourceCheck,
   ImageField,
   RichText as JssRichText,
   Image as JssImage,
   Placeholder,
- } from '@sitecore-jss/sitecore-jss-nextjs';
+  ComponentRendering,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 type DifferentiatorPanelProps = ComponentProps & {
@@ -14,23 +15,20 @@ type DifferentiatorPanelProps = ComponentProps & {
     title: Field<string>;
     description: Field<string>;
     contentimage: ImageField;
-  }
-  rendering : any
+  };
+  rendering: ComponentRendering;
 };
 
 const DifferentiatorPanel = (props: DifferentiatorPanelProps): JSX.Element => {
-  // Declare the constant to check if image exists
   const hasImage = !!props.fields.contentimage?.value?.src;
 
   return (
-    <section
-      className="differentiator"
-      role="complementary"
-      aria-label="Panel"
-    >
+    <section className="differentiator" role="complementary" aria-label="Panel">
       <div className="panel-container align-items-center">
         <div className={`content ${!hasImage ? 'full-width' : ''}`}>
-          <h2><Text field={props.fields.title} /></h2>
+          <h2>
+            <Text field={props.fields.title} />
+          </h2>
 
           <div className="description">
             <JssRichText className="description" field={props.fields.description} />
