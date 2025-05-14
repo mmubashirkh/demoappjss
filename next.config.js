@@ -1,8 +1,7 @@
 const jssConfig = require('./src/temp/config');
 const plugins = require('./src/temp/next-config-plugins') || {};
 
-const publicUrl = jssConfig.publicUrl;
-
+const publicUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : process.env.PUBLIC_URL;
 /**
  * @type {import('next').NextConfig}
  */
